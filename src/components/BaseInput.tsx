@@ -1,4 +1,9 @@
-const BaseInput = ({ label, icon, ...props }: { label: string, icon?: string }): JSX.Element => {
+interface IProps extends React.ComponentPropsWithoutRef<"input"> {
+ label: string;
+ icon: string;
+}
+
+const BaseInput = ({ label, icon, ...props }: IProps): JSX.Element => {
  return (
   <label htmlFor="bill" className="flex flex-col text-gray-700 font-medium capitalize py-4">
    {label}
