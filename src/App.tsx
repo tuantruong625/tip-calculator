@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
 import BaseHeader from './components/BaseHeader';
+import TipSelection from './components/TipSelection';
 
 function App() {
+  // const options: number[] = [0.05]
+  const options: number[] = [0.05, 0.10, 0.15, 0.25, 0.50]
   return (
     <div style={{ backgroundColor: '#b9dee2' }}>
       <div className="container mx-auto pt-5 h-screen flex flex-col items-center md:justify-center" style={{ backgroundColor: '#b9dee2' }}>
@@ -18,6 +21,8 @@ function App() {
               </div>
             </label>
           </div>
+
+          <TipSelection tipOptions={options} />
         </div>
 
       </div>
