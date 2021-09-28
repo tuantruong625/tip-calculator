@@ -4,7 +4,7 @@ const BaseInput = ({ label, icon, ...props }: { label: string, icon?: string }):
    {label}
    <div className="flex items-center">
     <span className="absolute pl-3">{icon}</span>
-    <input type="text" name="bill" className="py-3 px-8 rounded-lg text-right w-full" {...props} />
+    <input type="text" name="bill" className="py-3 px-8 rounded-lg text-right w-full border" {...props} />
    </div>
   </label>
  )

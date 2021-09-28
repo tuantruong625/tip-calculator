@@ -20,8 +20,32 @@ function App() {
             <BaseInput label="number of people" icon="$" />
           </div>
 
-          <div className="bg-green-800 rounded-lg">
-            hi
+          <div className="bg-green-800 rounded-lg p-5 flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-gray-100">Tip Amount</p>
+                  <p className="text-green-200">/ person</p>
+                </div>
+
+                <p className="text-4xl text-green-400">
+                  $0.00
+                </p>
+              </div>
+
+              <div className="flex justify-between items-center pt-4">
+                <div>
+                  <p className="text-gray-100">Total</p>
+                  <p className="text-green-200">/ person</p>
+                </div>
+
+                <p className="text-4xl text-green-400">
+                  $0.00
+                </p>
+              </div>
+            </div>
+
+            <button className="bg-green-700 w-full py-3 mt-8 md:mt-0 text-green-600 rounded-md">reset</button>
           </div>
         </div>
 
