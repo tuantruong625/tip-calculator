@@ -8,11 +8,16 @@ function App() {
       <div className="container mx-auto pt-5 h-screen flex flex-col items-center md:justify-center" style={{ backgroundColor: '#b9dee2' }}>
         <BaseHeader title="splitter" />
 
-        <div>
-          <label htmlFor="bill">
-            Bill
-            <input type="text" name="bill" placeholder="Enter bill..." />
-          </label>
+        <div className="">
+          <div>
+            <label htmlFor="bill" className="flex flex-col text-gray-700 font-medium">
+              Bill
+              <div className="flex items-center">
+                <span className="absolute pl-3">$</span>
+                <input type="text" name="bill" placeholder="Enter bill..." className="py-3 px-8 rounded-lg text-right" />
+              </div>
+            </label>
+          </div>
         </div>
 
       </div>
