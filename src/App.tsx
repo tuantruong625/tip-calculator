@@ -8,8 +8,6 @@ import { useTotal } from './context/TotalContext';
 function App() {
   const options: number[] = [0.05, 0.10, 0.15, 0.25, 0.50]
   const value = useTotal()
-
-  const [total, setTotal] = useState(0)
   const [people, setPeople] = useState(2)
   const [bill, setBill] = useState<number>(0)
 
@@ -57,7 +55,16 @@ function App() {
               </div>
             </div>
 
-            <button className="bg-green-700 w-full py-3 mt-8 md:mt-0 text-green-600 rounded-md uppercase">reset</button>
+            <button
+              className="bg-green-500 w-full py-3 mt-8 md:mt-0 text-gray-200 rounded-md tracking-wider text-sm uppercase font-medium"
+              // className="bg-green-700 w-full py-3 mt-8 md:mt-0 text-green-600 rounded-md uppercase"
+              onClick={() => {
+                value?.resetBill()
+                setBill(0)
+                setPeople(2)
+              }}>
+              Reset
+            </button>
           </div>
         </div>
 
