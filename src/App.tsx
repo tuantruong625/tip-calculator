@@ -10,13 +10,12 @@ function App() {
   const value = useTotal()
 
   const [total, setTotal] = useState(0)
-  const [tip, setTip] = useState(0)
   const [people, setPeople] = useState(2)
   const [bill, setBill] = useState<number>(0)
 
   useEffect(() => {
-    // setTotal((bill * tip) / people)
-  }, [bill, total, people])
+    value?.calculateTotal(bill, people)
+  }, [bill, people, value])
 
   return (
     <div style={{ backgroundColor: '#b9dee2' }} className="container h-screen mx-auto max-w-4xl flex items-center justify-center">
@@ -27,7 +26,7 @@ function App() {
           <div>
             <BaseInput label="bill" icon="$" value={bill} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBill(+e.target.value)} />
 
-            <TipSelection tipOptions={options} tip={tip} />
+            <TipSelection tipOptions={options} />
 
             <BaseInput label="number of people" icon="$" value={people} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPeople(+e.target.value)} />
           </div>
@@ -52,12 +51,12 @@ function App() {
                 </div>
 
                 <p className="text-4xl text-green-400">
-                  ${value?.total}
+                  ${value?.total.toFixed(2)}
                 </p>
               </div>
             </div>
 
-            <button className="bg-green-700 w-full py-3 mt-8 md:mt-0 text-green-600 rounded-md">reset</button>
+            <button className="bg-green-700 w-full py-3 mt-8 md:mt-0 text-green-600 rounded-md uppercase">reset</button>
           </div>
         </div>
 
