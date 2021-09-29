@@ -1,9 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 const TotalContext = createContext<TotalContextInterface | null>(null)
 interface TotalContextInterface {
  total: number;
  calculateTotal: (bill: number, people: number) => void;
  setTip: (tip: number) => void;
+ setTipAmountPerPerson: (bill: number, people: number,) => void;
+ tipSpilt: number;
 }
 
 export function useTotal() {
@@ -13,6 +15,7 @@ export function useTotal() {
 export function TotalProvider({ children }: { children: any }): JSX.Element {
  const [total, setTotal] = useState(0)
  const [selectedTip, setSelectedTip] = useState(0)
+ const [tipSpilt, setTipSpilt] = useState(0)
 
  const calculateTotal = (bill: number, people: number) => {
   setTotal((bill * (selectedTip + 1)) / people)
@@ -22,10 +25,16 @@ export function TotalProvider({ children }: { children: any }): JSX.Element {
   setSelectedTip(tip)
  }
 
+ const setTipAmountPerPerson = (bill: number, people: number) => {
+  setTipSpilt(bill * (selectedTip) / people)
+ }
+
  const value: TotalContextInterface = {
   total,
   calculateTotal,
-  setTip
+  setTip,
+  setTipAmountPerPerson,
+  tipSpilt
  }
 
  return (

@@ -5,7 +5,7 @@ const TipSelection = ({ tipOptions }: { tipOptions: number[] }): JSX.Element => 
  const value = useTotal()
 
  return (
-  <div className="grid grid-cols-2 md:grid-cols-3 pt-5 gap-2">
+  <div className="grid grid-cols-2 md:grid-cols-3 py-5 gap-2">
    {
     tipOptions.map((options, index) => (
      <button key={index} onClick={() => value?.setTip(options)} className="bg-green-700 hover:bg-green-300 hover:text-gray-800 py-2 px-6 rounded-md text-gray-100 col-span-1">

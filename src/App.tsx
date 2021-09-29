@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     value?.calculateTotal(bill, people)
+    value?.setTipAmountPerPerson(bill, people)
   }, [bill, people, value])
 
   return (
@@ -35,22 +36,22 @@ function App() {
             <div>
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="text-gray-100">Tip Amount</p>
-                  <p className="text-green-200">/ person</p>
+                  <p className="text-gray-100 text-sm">Tip Amount</p>
+                  <p className="text-green-200 text-sm">/ person</p>
                 </div>
 
-                <p className="text-4xl text-green-400">
-                  $0.00
+                <p className="text-3xl md:text-4xl text-green-400">
+                  ${value?.tipSpilt.toFixed(2)}
                 </p>
               </div>
 
               <div className="flex justify-between items-center pt-4">
                 <div>
-                  <p className="text-gray-100">Total</p>
-                  <p className="text-green-200">/ person</p>
+                  <p className="text-gray-100 text-sm">Total</p>
+                  <p className="text-green-200 text-sm">/ person</p>
                 </div>
 
-                <p className="text-4xl text-green-400">
+                <p className="text-3xl md:text-4xl text-green-400">
                   ${value?.total.toFixed(2)}
                 </p>
               </div>
