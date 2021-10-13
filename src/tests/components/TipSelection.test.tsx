@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
 import TipSelection from "../../components/TipSelection";
 
 describe('TipSelection', () => {
@@ -11,5 +12,15 @@ describe('TipSelection', () => {
   expect(screen.getByText('15%')).toBeInTheDocument()
   expect(screen.getByText('25%')).toBeInTheDocument()
   expect(screen.getByText('50%')).toBeInTheDocument()
+ });
+
+ it.skip('sets selected tip option styling', async () => {
+  const options: number[] = [0.05, 0.10, 0.15, 0.25, 0.50]
+  render(<TipSelection tipOptions={options} />)
+
+  const selectedTipOptionButton = await screen.findByText('15%')
+
+  fireEvent.click(selectedTipOptionButton as HTMLButtonElement)
+  expect(selectedTipOptionButton).toHaveClass('bg-green-500')
  });
 });

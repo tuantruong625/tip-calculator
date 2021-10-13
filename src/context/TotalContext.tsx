@@ -6,6 +6,7 @@ interface TotalContextInterface {
  setTip: (tip: number) => void;
  setTipAmountPerPerson: (bill: number, people: number,) => void;
  tipSpilt: number;
+ selectedTip: number;
  resetBill: () => void
 }
 
@@ -42,7 +43,8 @@ export function TotalProvider({ children }: { children: any }): JSX.Element {
   setTip,
   setTipAmountPerPerson,
   tipSpilt,
-  resetBill
+  resetBill,
+  selectedTip
  }
 
  return (

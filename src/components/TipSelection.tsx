@@ -8,7 +8,8 @@ const TipSelection = ({ tipOptions }: { tipOptions: number[] }): JSX.Element => 
   <div className="grid grid-cols-2 md:grid-cols-3 py-5 gap-2">
    {
     tipOptions.map((options, index) => (
-     <button key={index} onClick={() => value?.setTip(options)} className="bg-green-700 hover:bg-green-300 hover:text-gray-800 py-2 px-6 rounded-md text-gray-100 col-span-1">
+     <button key={index} onClick={() => value?.setTip(options)}
+      className={`hover:bg-green-300 hover:text-gray-800 py-2 px-6 rounded-md text-gray-100 col-span-1 ${value?.selectedTip === options ? 'bg-green-500' : 'bg-green-700'}`}>
       {options * 100}%
      </button>
     ))
